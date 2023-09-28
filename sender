@@ -1,0 +1,17 @@
+from twilio.rest import Client
+
+# TwilioのアカウントSIDと認証トークンを設定
+account_sid = 'YOUR_ACCOUNT_SID'
+auth_token = 'YOUR_AUTH_TOKEN'
+
+# Twilioクライアントを初期化
+client = Client(account_sid, auth_token)
+
+# SMSを送信
+message = client.messages.create(
+    body='Hello, this is a Twilio SMS!',
+    from_='YOUR_TWILIO_PHONE_NUMBER',
+    to='RECIPIENT_PHONE_NUMBER'
+)
+
+print('SMS sent:', message.sid)
